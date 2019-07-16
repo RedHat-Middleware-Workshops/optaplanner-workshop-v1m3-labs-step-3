@@ -1,0 +1,9 @@
+<solver>
+  <scanAnnotatedClasses/>
+  <scoreDirectorFactory>
+    <easyScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.optional.score.CloudBalancingEasyScoreCalculator</easyScoreCalculatorClass>
+  </scoreDirectorFactory>
+  <termination>
+    <millisecondsSpentLimit>5000</millisecondsSpentLimit>
+  </termination>
+</solver>
