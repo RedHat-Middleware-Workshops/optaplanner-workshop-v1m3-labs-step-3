@@ -100,7 +100,33 @@
       <version>2.0.0.0</version>
       <scope>test</scope>
     </dependency>
-
-
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>benchmarker</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>java</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <mainClass>org.optaplanner.examples.cloudbalancing.benchmark.CloudBalancingBenchmarker</mainClass>
+              <arguments>
+                <argument>${project.basedir}</argument>
+              </arguments>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
