@@ -14,17 +14,9 @@ import org.optaplanner.examples.cloudbalancing.persistence.CloudBalanceRepositor
 public class CloudBalancingBenchmarker {
 
     public static void main(String[] args) {
-        SolverFactory<CloudBalance> solverFactory = SolverFactory
-                .createFromXmlResource("org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
-        PlannerBenchmarkFactory benchmarkFactory = PlannerBenchmarkFactory.createFromSolverFactory(solverFactory);
-
-        // Project build directory is provided as an argument to this method
-        String projectBuildPath = args[0];
-        File dataSetOne = new File(
-                projectBuildPath + File.separator + "data/cloudbalancing/unsolved/100computers-300processes.xml");
-        CloudBalance cloudBalanceDataSet1 = CloudBalanceRepository.load(dataSetOne);
-
-        PlannerBenchmark benchmark = benchmarkFactory.buildPlannerBenchmark(cloudBalanceDataSet1);
+        
+        PlannerBenchmarkFactory benchmarkFactory = PlannerBenchmarkFactory.createFromXmlResource("org/optaplanner/examples/cloudbalancing/benchmark/cloudBalancingBenchmarkConfig.xml");
+        PlannerBenchmark benchmark = benchmarkFactory.buildPlannerBenchmark();
         benchmark.benchmark();
     }
 
